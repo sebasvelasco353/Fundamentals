@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Tank
 
 # constants
 const SPEED:float = 64.0
