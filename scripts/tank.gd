@@ -9,6 +9,11 @@ const ROTATE_SPEED:int = 20
 # variables
 var direction:Vector2 = Vector2.RIGHT
 
+# signals
+signal collected(collectable)
+signal reloaded()
+signal reload_progress(progress)
+
 #exports
 @export var weapon: Weapon
 
@@ -16,6 +21,10 @@ var direction:Vector2 = Vector2.RIGHT
 @onready var body_sprite = $BodySprite
 @onready var animation_player = $AnimationPlayer
 @onready var collider = $CollisionShape2D
+
+func _ready():
+	weapon.reloaded.connect(func(): reloaded.emit())
+	weapon.reload_progress.connect(func(progress): reload_progress.emit(progress))
 
 func _physics_process(delta):
 	var input_direction := Input.get_vector("turn_left", "turn_right", "move_backward", "move_forward")
@@ -42,3 +51,6 @@ func _physics_process(delta):
 func _input(event):
 	if event.is_action_pressed("weapon_fire"):
 		weapon.fire()
+
+func collect(collectable):
+	collected.emit(collectable)

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://mibqiq4pyik1" path="res://assets/sprites/crate.png" id="1_5wxn2"]
 [ext_resource type="Script" path="res://scripts/crate.gd" id="1_ivoi7"]
-[ext_resource type="PackedScene" uid="uid://bwbrw2u4vmjm1" path="res://scenes/pickup.tscn" id="2_r1knm"]
+[ext_resource type="PackedScene" uid="uid://bwbrw2u4vmjm1" path="res://scenes/entities/world/pickup.tscn" id="2_r1knm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0fow6"]
 size = Vector2(16, 16)

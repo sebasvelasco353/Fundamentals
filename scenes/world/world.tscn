@@ -1,25 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqbcdw4rl0iff"]
+[gd_scene load_steps=6 format=3 uid="uid://cqbcdw4rl0iff"]
 
-[ext_resource type="PackedScene" uid="uid://y5s487kl7kay" path="res://scenes/tank.tscn" id="1_18ylv"]
-[ext_resource type="PackedScene" uid="uid://daapeq76iejv3" path="res://scenes/wall.tscn" id="2_8kx23"]
-[ext_resource type="PackedScene" uid="uid://c3yaffjomt0cq" path="res://scenes/crate.tscn" id="3_f0b3t"]
+[ext_resource type="PackedScene" uid="uid://daapeq76iejv3" path="res://scenes/entities/world/wall.tscn" id="2_ms585"]
+[ext_resource type="PackedScene" uid="uid://c3yaffjomt0cq" path="res://scenes/entities/world/crate.tscn" id="3_8lyjk"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_2da6p"]
 resource_name = "walls"
-scenes/1/scene = ExtResource("2_8kx23")
+scenes/1/scene = ExtResource("2_ms585")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_2xpex"]
 resource_name = "destructables"
-scenes/1/scene = ExtResource("3_f0b3t")
+scenes/1/scene = ExtResource("3_8lyjk")
 
 [sub_resource type="TileSet" id="TileSet_xmirq"]
 sources/0 = SubResource("TileSetScenesCollectionSource_2da6p")
 sources/1 = SubResource("TileSetScenesCollectionSource_2xpex")
 
 [node name="World" type="Node2D"]
-
-[node name="Tank" parent="." instance=ExtResource("1_18ylv")]
-position = Vector2(301, 333)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_xmirq")

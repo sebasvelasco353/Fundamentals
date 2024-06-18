@@ -1,6 +1,10 @@
 extends Node2D
 class_name  Weapon
 
+# signals
+signal reloaded()
+signal reload_progress(progress)
+
 # States for the weapon
 enum STATES { READY, FIRING, RELOADING }
 var state:STATES = STATES.READY
@@ -10,6 +14,10 @@ var state:STATES = STATES.READY
 
 # references
 @onready var reload_timer = $Timer
+
+func _process(delta):
+	if !reload_timer.is_stopped():
+		reload_progress.emit(1 - (reload_timer.time_left / reload_timer.wait_time))
 
 func change_state(new_state:STATES):
 	# Handles the state change of the weapon
@@ -33,3 +41,4 @@ func fire():
 
 func _on_timer_timeout():
 	change_state(STATES.READY)
+	reloaded.emit()

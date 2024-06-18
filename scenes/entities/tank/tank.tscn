@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" path="res://scripts/tank.gd" id="1_c1aqe"]
 [ext_resource type="Texture2D" uid="uid://cihn53tjb5npy" path="res://assets/sprites/tank_body.png" id="1_qvkdi"]
-[ext_resource type="PackedScene" uid="uid://bu6fcc08r5w1i" path="res://scenes/weapon.tscn" id="2_28hmp"]
+[ext_resource type="PackedScene" uid="uid://bu6fcc08r5w1i" path="res://scenes/entities/tank/weapons/weapon.tscn" id="2_28hmp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o0kp1"]
 size = Vector2(28, 26)
 
-[sub_resource type="Animation" id="Animation_2207f"]
-resource_name = "idle"
+[sub_resource type="Animation" id="Animation_7otr1"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -22,8 +22,8 @@ tracks/0/keys = {
 "values": [0]
 }
 
-[sub_resource type="Animation" id="Animation_7otr1"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_2207f"]
+resource_name = "idle"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
