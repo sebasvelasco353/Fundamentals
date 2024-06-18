@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqbcdw4rl0iff"]
+
+[ext_resource type="PackedScene" uid="uid://y5s487kl7kay" path="res://scenes/tank.tscn" id="1_18ylv"]
+
+[node name="World" type="Node2D"]
+
+[node name="Tank" parent="." instance=ExtResource("1_18ylv")]
+position = Vector2(301, 333)
