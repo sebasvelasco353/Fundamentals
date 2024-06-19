@@ -14,6 +14,7 @@ var state:STATES = STATES.READY
 
 # references
 @onready var reload_timer = $Timer
+@onready var audio_player = $AudioStreamPlayer
 
 func _process(delta):
 	if !reload_timer.is_stopped():
@@ -33,6 +34,9 @@ func fire():
 	var bullet = BULLET_SCENE.instantiate()
 	bullet.direction = Vector2.from_angle(global_rotation)
 	bullet.global_position = global_position
+	
+	audio_player.play()
+	
 	# Add bullet to the root scene so translation is in world space
 	get_tree().root.add_child(bullet)
 	# We set the state to reloading and start the reloading timer
