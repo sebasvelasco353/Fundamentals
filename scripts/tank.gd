@@ -8,6 +8,7 @@ const ROTATE_SPEED:int = 20
 
 # variables
 var direction:Vector2 = Vector2.RIGHT
+var speed_modifier:float = 1.0
 
 # signals
 signal collected(collectable)
@@ -33,9 +34,11 @@ func _physics_process(delta):
 		direction = direction.rotated(input_direction.x * (PI/2) * TURN_SPEED * delta)
 		rotation = direction.angle()
 	if input_direction.y != 0:
+		speed_modifier = World.get_custom_data_at(position, "speed_modifier")
+		var move_speed = SPEED * speed_modifier
 		# Move forward/backward depending of input
 		animation_player.play("move")
-		velocity = lerp(velocity, (direction.normalized() * input_direction.y) * SPEED, SPEED * delta)
+		velocity = lerp(velocity, (direction.normalized() * input_direction.y) * move_speed, SPEED * delta)
 	else:
 		# Stop our character
 		velocity = Vector2.ZERO
